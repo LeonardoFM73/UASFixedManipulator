@@ -49,29 +49,33 @@ def main():
             #del result
             # print(barcode_info)
             # print(type(barcode_info))  
+            time.sleep(5)
         elif barcode_info == "Merah":
             print("Warna Merah")
             os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe"')
             barcode_info=None
             #del result
-            print(barcode_info)
-            print(type(barcode_info))
+            # print(barcode_info)
+            # print(type(barcode_info))
+            time.sleep(5)
         elif barcode_info == "Hijau":
             print("Warna Hijau")
             os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track3.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track3.exe"')
             barcode_info=None
             #del result
-            print(barcode_info)
-            print(type(barcode_info))
+            # print(barcode_info)
+            # print(type(barcode_info))
+            time.sleep(5)
         elif barcode_info == "Kuning":
             print("Warna Kuning")
             os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track4.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track4.exe"')
             barcode_info=None
-            print(barcode_info)
-            print(type(barcode_info))
+            # print(barcode_info)
+            # print(type(barcode_info))
+            time.sleep(5)
         cv2.imshow('Barcode/QR code reader', frame)
         if cv2.waitKey(1) & 0xFF == 27:
             break
@@ -81,4 +85,5 @@ def main():
 4
 if __name__ == '__main__':
     build()
+    #os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
     main()
