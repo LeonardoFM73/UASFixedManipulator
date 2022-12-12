@@ -82,7 +82,7 @@ def main():
     #3
     camera.release()
     cv2.destroyAllWindows()
-4
+
 if __name__ == '__main__':
     build()
     #os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
