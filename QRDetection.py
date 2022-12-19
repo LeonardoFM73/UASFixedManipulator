@@ -94,8 +94,10 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
+    print("Build Start")
     start_time = time.time()
     build()
     print("--- %s seconds ---" % (time.time() - start_time))
+    print("Build End\n")
     #os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
     main()
