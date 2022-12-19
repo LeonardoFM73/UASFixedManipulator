@@ -5,7 +5,7 @@ import time
 import os
 
 barcode_info=None
-
+temp = 0
 def read_barcodes(frame):
     global barcode_info
     barcodes = pyzbar.decode(frame)
@@ -34,48 +34,58 @@ def build():
 
 def main():
     global barcode_info
+    global temp
     #C:\Users\dell\Downloads\UASFixedManipulato
-    camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1,cv2.CAP_DSHOW)
     ret, frame = camera.read()
+    print("Camera ON")
     while ret:
         ret, frame = camera.read()
         frame= read_barcodes(frame)
         #print(type(barcode_info))  
         if barcode_info == "Biru":
-            print("Warna Biru")
-            os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track1.exe")
+            rute=1
+            if temp!=1:
+                print("Warna Biru")
+                os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track1.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track1.exe"')
             barcode_info=None
+            temp=rute
             #del result
             # print(barcode_info)
             # print(type(barcode_info))  
-            time.sleep(5)
         elif barcode_info == "Merah":
-            print("Warna Merah")
-            os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
+            rute=2
+            if temp!=2:
+                print("Warna Merah")
+                os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe"')
             barcode_info=None
+            temp=rute
             #del result
             # print(barcode_info)
             # print(type(barcode_info))
-            time.sleep(5)
         elif barcode_info == "Hijau":
-            print("Warna Hijau")
-            os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track3.exe")
+            rute=3
+            if temp!=3:
+                print("Warna Hijau")
+                os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track3.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track3.exe"')
             barcode_info=None
+            temp=rute
             #del result
             # print(barcode_info)
             # print(type(barcode_info))
-            time.sleep(5)
         elif barcode_info == "Kuning":
-            print("Warna Kuning")
-            os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track4.exe")
+            rute=4
+            if temp!=4:
+                print("Warna Kuning")
+                os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track4.exe")
             #os.system('"C:/Users/dell/Downloads/UASFixedManipulator/Track4.exe"')
             barcode_info=None
+            temp=rute
             # print(barcode_info)
             # print(type(barcode_info))
-            time.sleep(5)
         cv2.imshow('Barcode/QR code reader', frame)
         if cv2.waitKey(1) & 0xFF == 27:
             break
@@ -84,6 +94,8 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
+    start_time = time.time()
     build()
+    print("--- %s seconds ---" % (time.time() - start_time))
     #os.system("C:/Users/dell/Downloads/UASFixedManipulator/Track2.exe")
     main()
